@@ -15,8 +15,8 @@ import (
 	whoisparser "github.com/likexian/whois-parser"
 )
 
-func GetUrlsFromFile() ([]string, error) {
-	file, err := os.Open("urls.txt")
+func GetUrlsFromFile(fileName string) ([]string, error) {
+	file, err := os.Open(fileName)
 	if err != nil {
 		return nil, err
 	}
@@ -72,11 +72,14 @@ func GetIPStatus(rawUrl string) (*models.IPStatus, error) {
 	}
 	parsedWhois, err := whoisparser.Parse(whoisRecord)
 	if err != nil {
-		return nil, fmt.Errorf("could not parse whois record: %v", err)
+		status.WhoisRegistrar = "Não disponível"
+		status.WhoisCreationDate = "Não disponível"
+		status.WhoisExpirationDate = "Não disponível"
+	} else {
+		status.WhoisRegistrar = parsedWhois.Registrar.Name
+		status.WhoisCreationDate = parsedWhois.Domain.CreatedDate
+		status.WhoisExpirationDate = parsedWhois.Domain.ExpirationDate
 	}
-	status.WhoisRegistrar = parsedWhois.Registrar.Name
-	status.WhoisCreationDate = parsedWhois.Domain.CreatedDate
-	status.WhoisExpirationDate = parsedWhois.Domain.ExpirationDate
 
 	return status, nil
 }

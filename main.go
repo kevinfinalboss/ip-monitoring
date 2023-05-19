@@ -37,7 +37,7 @@ func main() {
 
 		for {
 			for _, url := range urls {
-				status, err := services.IPStatus(url)
+				status, err := services.GetIPStatus(url)
 				if err != nil {
 					log.Println("Error getting status for", url, "-", err)
 					continue
