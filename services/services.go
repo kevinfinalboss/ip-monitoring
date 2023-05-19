@@ -15,23 +15,13 @@ import (
 	whoisparser "github.com/likexian/whois-parser"
 )
 
-func GetUrlsFromFile(fileName string) ([]string, error) {
-	file, err := os.Open(fileName)
-	if err != nil {
-		return nil, err
-	}
-	defer file.Close()
-
-	var lines []string
-	scanner := bufio.NewScanner(file)
-	for scanner.Scan() {
-		lines = append(lines, scanner.Text())
-	}
-
-	return lines, scanner.Err()
+type IPStatusGetter interface {
+	GetIPStatus(rawUrl string) (*models.IPStatus, error)
 }
 
-func GetIPStatus(rawUrl string) (*models.IPStatus, error) {
+type Service struct{}
+
+func (s *Service) GetIPStatus(rawUrl string) (*models.IPStatus, error) {
 	status := &models.IPStatus{}
 
 	if !strings.HasPrefix(rawUrl, "http://") && !strings.HasPrefix(rawUrl, "https://") {
@@ -82,4 +72,20 @@ func GetIPStatus(rawUrl string) (*models.IPStatus, error) {
 	}
 
 	return status, nil
+}
+
+func GetUrlsFromFile(fileName string) ([]string, error) {
+	file, err := os.Open(fileName)
+	if err != nil {
+		return nil, err
+	}
+	defer file.Close()
+
+	var lines []string
+	scanner := bufio.NewScanner(file)
+	for scanner.Scan() {
+		lines = append(lines, scanner.Text())
+	}
+
+	return lines, scanner.Err()
 }
