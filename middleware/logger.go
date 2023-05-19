@@ -14,11 +14,12 @@ func RequestLogger(next http.Handler) http.Handler {
 		next.ServeHTTP(w, r)
 
 		duration := time.Since(startTime)
-		logrus.WithFields(logrus.Fields{
+		logger := logrus.WithFields(logrus.Fields{
 			"method":     r.Method,
 			"requestURI": r.RequestURI,
 			"remoteAddr": r.RemoteAddr,
 			"duration":   duration,
-		}).Info("Processed a request")
+		})
+		logger.Info("Processed a request")
 	})
 }
