@@ -15,7 +15,7 @@ import (
 	whoisparser "github.com/likexian/whois-parser"
 )
 
-func getUrlsFromFile() ([]string, error) {
+func GetUrlsFromFile() ([]string, error) {
 	file, err := os.Open("urls.txt")
 	if err != nil {
 		return nil, err
