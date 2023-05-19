@@ -43,9 +43,11 @@ func main() {
 			logrus.Fatalf("Error reading URLs from file: %v", err)
 		}
 
+		service := services.Service{}
+
 		for {
 			for _, url := range urls {
-				status, err := services.GetIPStatus(url)
+				status, err := service.GetIPStatus(url)
 				if err != nil {
 					logrus.Errorf("Error getting status for %s: %v", url, err)
 					continue
