@@ -77,6 +77,6 @@ Inicie o servidor
 Antes certifique que está no diretorio de testes e depois execute o seguinte comando.
 
 ```bash
-  go test
+  go test -v ./...
 ```
 
