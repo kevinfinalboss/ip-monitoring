@@ -1,9 +1,11 @@
 package main
 
 import (
-	"log"
+	"context"
 	"net/http"
 	"os"
+	"os/signal"
+	"syscall"
 	"time"
 
 	"github.com/kevinfinalboss/ip-monitoring/notifiers"
@@ -12,7 +14,10 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-const discordWebhookUrl = "https://discord.com/api/webhooks/1103840164062707762/hmu05z5RrS4ya4QTHBKT7XxSaCfS1JxoACWZ750lzje0sZpejBY_6tu0AzK1pAshzJ4m"
+const (
+	discordWebhookUrl = "https://discord.com/api/webhooks/1103840164062707762/hmu05z5RrS4ya4QTHBKT7XxSaCfS1JxoACWZ750lzje0sZpejBY_6tu0AzK1pAshzJ4m"
+	port              = ":8080"
+)
 
 func main() {
 	logrus.SetFormatter(&logrus.JSONFormatter{})
@@ -21,7 +26,7 @@ func main() {
 	if err == nil {
 		logrus.SetOutput(logFile)
 	} else {
-		log.Println("Failed to log to file, using default stderr")
+		logrus.Warnln("Failed to log to file, using default stderr")
 	}
 
 	if os.Getenv("ENV") == "production" {
@@ -35,21 +40,21 @@ func main() {
 	go func() {
 		urls, err := services.GetUrlsFromFile("urls.txt")
 		if err != nil {
-			log.Fatal(err)
+			logrus.Fatalf("Error reading URLs from file: %v", err)
 		}
 
 		for {
 			for _, url := range urls {
 				status, err := services.GetIPStatus(url)
 				if err != nil {
-					log.Println("Error getting status for", url, "-", err)
+					logrus.Errorf("Error getting status for %s: %v", url, err)
 					continue
 				}
 
-				log.Println("Status for", url, "-", status)
+				logrus.Infof("Status for %s: %v", url, status)
 				err = notifiers.PostToWebhook(discordWebhookUrl, status)
 				if err != nil {
-					log.Println("Error posting to discord webhook:", err)
+					logrus.Errorf("Error posting to discord webhook: %v", err)
 				}
 			}
 
@@ -57,5 +62,25 @@ func main() {
 		}
 	}()
 
-	log.Fatal(http.ListenAndServe(":8080", r))
+	server := &http.Server{
+		Addr:    port,
+		Handler: r,
+	}
+
+	go func() {
+		if err := server.ListenAndServe(); err != nil && err != http.ErrServerClosed {
+			logrus.Fatalf("Could not listen on %s: %v\n", port, err)
+		}
+	}()
+
+	logrus.Infof("Server is ready to handle requests at %s", port)
+	quit := make(chan os.Signal, 1)
+	signal.Notify(quit, os.Interrupt, syscall.SIGTERM)
+	sig := <-quit
+	logrus.Infof("Server is shutting down due to %v signal", sig)
+
+	if err := server.Shutdown(context.Background()); err != nil {
+		logrus.Errorf("Could not gracefully shutdown the server: %v\n", err)
+	}
+	logrus.Infof("Server stopped")
 }
