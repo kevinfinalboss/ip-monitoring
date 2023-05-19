@@ -1,2 +1,9 @@
 {"duration":77935600,"level":"info","method":"GET","msg":"Processed a request","remoteAddr":"[::1]:51761","requestURI":"/status","time":"2023-05-19T13:20:40-03:00"}
 {"duration":13754500,"level":"info","method":"GET","msg":"Processed a request","remoteAddr":"[::1]:51761","requestURI":"/status","time":"2023-05-19T13:21:00-03:00"}
+{"duration":0,"level":"info","method":"GET","msg":"Processed a request","remoteAddr":"[::1]:52137","requestURI":"/status","time":"2023-05-19T13:43:27-03:00"}
+{"duration":22144500,"level":"info","method":"GET","msg":"Processed a request","remoteAddr":"[::1]:52137","requestURI":"/status?url=www.github.com","time":"2023-05-19T13:43:54-03:00"}
+{"duration":483800,"level":"info","method":"GET","msg":"Processed a request","remoteAddr":"[::1]:52137","requestURI":"/status?url=https://github.com","time":"2023-05-19T13:44:47-03:00"}
+{"duration":1909878100,"level":"info","method":"GET","msg":"Processed a request","remoteAddr":"[::1]:52215","requestURI":"/status?url=https://github.com","time":"2023-05-19T13:48:38-03:00"}
+{"duration":1545955900,"level":"info","method":"GET","msg":"Processed a request","remoteAddr":"[::1]:52215","requestURI":"/status?url=https://google.com","time":"2023-05-19T13:49:22-03:00"}
+{"duration":1660017500,"level":"info","method":"GET","msg":"Processed a request","remoteAddr":"[::1]:52215","requestURI":"/status?url=https://facebook.com","time":"2023-05-19T13:49:33-03:00"}
+{"duration":4437988300,"level":"info","method":"GET","msg":"Processed a request","remoteAddr":"[::1]:52215","requestURI":"/status?url=https://tiktok.com","time":"2023-05-19T13:49:45-03:00"}

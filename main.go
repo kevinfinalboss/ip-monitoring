@@ -4,8 +4,10 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"time"
 
 	"github.com/kevinfinalboss/ip-monitoring/routers"
+	"github.com/kevinfinalboss/ip-monitoring/services"
 	"github.com/sirupsen/logrus"
 )
 
@@ -26,6 +28,27 @@ func main() {
 	}
 
 	r := routers.NewRouter()
+
+	go func() {
+		urls, err := services.GetUrlsFromFile("urls.txt")
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		for {
+			for _, url := range urls {
+				status, err := services.IPStatus(url)
+				if err != nil {
+					log.Println("Error getting status for", url, "-", err)
+					continue
+				}
+
+				log.Println("Status for", url, "-", status)
+			}
+
+			time.Sleep(5 * time.Minute)
+		}
+	}()
 
 	log.Fatal(http.ListenAndServe(":8080", r))
 }
