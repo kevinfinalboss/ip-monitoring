@@ -7,3 +7,18 @@
 {"duration":1545955900,"level":"info","method":"GET","msg":"Processed a request","remoteAddr":"[::1]:52215","requestURI":"/status?url=https://google.com","time":"2023-05-19T13:49:22-03:00"}
 {"duration":1660017500,"level":"info","method":"GET","msg":"Processed a request","remoteAddr":"[::1]:52215","requestURI":"/status?url=https://facebook.com","time":"2023-05-19T13:49:33-03:00"}
 {"duration":4437988300,"level":"info","method":"GET","msg":"Processed a request","remoteAddr":"[::1]:52215","requestURI":"/status?url=https://tiktok.com","time":"2023-05-19T13:49:45-03:00"}
+{"duration":3987023400,"level":"info","method":"GET","msg":"Processed a request","remoteAddr":"[::1]:54259","requestURI":"/status?url=https://tiktok.com","time":"2023-05-19T16:44:42-03:00"}
+{"level":"info","msg":"Server is ready to handle requests at :8080","time":"2023-05-19T16:58:05-03:00"}
+{"level":"info","msg":"Status for https://github.com/: \u0026{ 20.201.28.151 200  14.1054ms MarkMonitor Inc. 2007-10-09T18:20:50Z 2024-10-09T18:20:50Z}","time":"2023-05-19T16:58:06-03:00"}
+{"level":"info","msg":"Status for https://tiktok.com/: \u0026{ 108.139.182.114 200  1.5050058s Gandi SAS 1996-07-21T04:00:00Z 2023-07-20T04:00:00Z}","time":"2023-05-19T16:58:10-03:00"}
+{"level":"info","msg":"Status for https://dudinha-bot-website.vercel.app/: \u0026{ 76.76.21.123 200  8.5077ms   }","time":"2023-05-19T16:58:11-03:00"}
+{"level":"error","msg":"Error getting status for : could not get IPs: lookup : no such host","time":"2023-05-19T16:58:11-03:00"}
+{"level":"info","msg":"Server is shutting down due to interrupt signal","time":"2023-05-19T16:58:21-03:00"}
+{"level":"info","msg":"Server stopped","time":"2023-05-19T16:58:21-03:00"}
+{"level":"info","msg":"Server is ready to handle requests at :8080","time":"2023-05-19T16:59:23-03:00"}
+{"level":"info","msg":"Status for https://github.com/: \u0026{ 20.201.28.151 200  23.2912ms MarkMonitor Inc. 2007-10-09T18:20:50Z 2024-10-09T18:20:50Z}","time":"2023-05-19T16:59:24-03:00"}
+{"level":"info","msg":"Status for https://tiktok.com/: \u0026{ 108.139.182.114 200  1.4908588s Gandi SAS 1996-07-21T04:00:00Z 2023-07-20T04:00:00Z}","time":"2023-05-19T16:59:28-03:00"}
+{"level":"info","msg":"Status for https://dudinha-bot-website.vercel.app/: \u0026{ 76.76.21.123 200  9.8919ms   }","time":"2023-05-19T16:59:29-03:00"}
+{"level":"error","msg":"Error getting status for : could not get IPs: lookup : no such host","time":"2023-05-19T16:59:29-03:00"}
+{"level":"info","msg":"Server is shutting down due to interrupt signal","time":"2023-05-19T16:59:37-03:00"}
+{"level":"info","msg":"Server stopped","time":"2023-05-19T16:59:37-03:00"}
