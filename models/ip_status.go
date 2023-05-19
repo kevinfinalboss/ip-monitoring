@@ -1,27 +1,12 @@
-package main
+package models
 
-import (
-	"encoding/json"
-	"net/http"
-
-	"github.com/go-chi/chi"
-	"github.com/go-chi/chi/middleware"
-)
-
-func main() {
-	r := chi.NewRouter()
-
-	r.Use(middleware.Recoverer)
-	r.Use(middleware.Logger)
-
-	r.Get("/status", getStatus)
-
-	http.ListenAndServe(":8080", r)
-}
-
-func getStatus(w http.ResponseWriter, r *http.Request) {
-
-	w.Header().Set("Content-Type", "application/json")
-	w.WriteHeader(http.StatusOK)
-	json.NewEncoder(w).Encode(map[string]string{"status": "OK"})
+type IPStatus struct {
+	URL                 string `json:"url"`
+	IPAddress           string `json:"ip_address"`
+	HTTPStatus          int    `json:"http_status"`
+	LastDown            string `json:"last_down"`
+	Latency             string `json:"latency"`
+	WhoisRegistrar      string `json:"whois_registrar"`
+	WhoisCreationDate   string `json:"whois_creation_date"`
+	WhoisExpirationDate string `json:"whois_expiration_date"`
 }
