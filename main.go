@@ -6,10 +6,13 @@ import (
 	"os"
 	"time"
 
+	"github.com/kevinfinalboss/ip-monitoring/notifiers"
 	"github.com/kevinfinalboss/ip-monitoring/routers"
 	"github.com/kevinfinalboss/ip-monitoring/services"
 	"github.com/sirupsen/logrus"
 )
+
+const discordWebhookUrl = "https://discord.com/api/webhooks/1103840164062707762/hmu05z5RrS4ya4QTHBKT7XxSaCfS1JxoACWZ750lzje0sZpejBY_6tu0AzK1pAshzJ4m"
 
 func main() {
 	logrus.SetFormatter(&logrus.JSONFormatter{})
@@ -44,6 +47,10 @@ func main() {
 				}
 
 				log.Println("Status for", url, "-", status)
+				err = notifiers.PostToWebhook(discordWebhookUrl, status)
+				if err != nil {
+					log.Println("Error posting to discord webhook:", err)
+				}
 			}
 
 			time.Sleep(1 * time.Hour)
