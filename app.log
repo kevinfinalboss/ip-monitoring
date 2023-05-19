@@ -1,0 +1,2 @@
+{"duration":77935600,"level":"info","method":"GET","msg":"Processed a request","remoteAddr":"[::1]:51761","requestURI":"/status","time":"2023-05-19T13:20:40-03:00"}
+{"duration":13754500,"level":"info","method":"GET","msg":"Processed a request","remoteAddr":"[::1]:51761","requestURI":"/status","time":"2023-05-19T13:21:00-03:00"}
