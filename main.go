@@ -18,7 +18,7 @@ func main() {
 	if err == nil {
 		logrus.SetOutput(logFile)
 	} else {
-		log.Println("Failed to log to file, using default stderr")
+		log.Println("Failed to log to file, using default stder")
 	}
 
 	if os.Getenv("ENV") == "production" {
