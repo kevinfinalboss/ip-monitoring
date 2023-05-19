@@ -72,9 +72,9 @@ func GetIPStatus(rawUrl string) (*models.IPStatus, error) {
 	}
 	parsedWhois, err := whoisparser.Parse(whoisRecord)
 	if err != nil {
-		status.WhoisRegistrar = "Não disponível"
-		status.WhoisCreationDate = "Não disponível"
-		status.WhoisExpirationDate = "Não disponível"
+		status.WhoisRegistrar = ""
+		status.WhoisCreationDate = ""
+		status.WhoisExpirationDate = ""
 	} else {
 		status.WhoisRegistrar = parsedWhois.Registrar.Name
 		status.WhoisCreationDate = parsedWhois.Domain.CreatedDate
