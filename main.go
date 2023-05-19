@@ -18,7 +18,7 @@ func main() {
 	if err == nil {
 		logrus.SetOutput(logFile)
 	} else {
-		log.Println("Failed to log to file, using default stder")
+		log.Println("Failed to log to file, using default stderr")
 	}
 
 	if os.Getenv("ENV") == "production" {
@@ -46,7 +46,7 @@ func main() {
 				log.Println("Status for", url, "-", status)
 			}
 
-			time.Sleep(5 * time.Minute)
+			time.Sleep(1 * time.Hour)
 		}
 	}()
 
