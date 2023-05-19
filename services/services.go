@@ -1,10 +1,12 @@
 package services
 
 import (
+	"bufio"
 	"fmt"
 	"net"
 	"net/http"
 	"net/url"
+	"os"
 	"strings"
 	"time"
 
@@ -12,6 +14,22 @@ import (
 	"github.com/likexian/whois"
 	whoisparser "github.com/likexian/whois-parser"
 )
+
+func getUrlsFromFile() ([]string, error) {
+	file, err := os.Open("urls.txt")
+	if err != nil {
+		return nil, err
+	}
+	defer file.Close()
+
+	var lines []string
+	scanner := bufio.NewScanner(file)
+	for scanner.Scan() {
+		lines = append(lines, scanner.Text())
+	}
+
+	return lines, scanner.Err()
+}
 
 func GetIPStatus(rawUrl string) (*models.IPStatus, error) {
 	status := &models.IPStatus{}
