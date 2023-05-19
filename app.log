@@ -29,3 +29,12 @@
 {"level":"error","msg":"Error getting status for : could not get IPs: lookup : no such host","time":"2023-05-19T19:24:07-03:00"}
 {"level":"info","msg":"Server is shutting down due to interrupt signal","time":"2023-05-19T19:24:16-03:00"}
 {"level":"info","msg":"Server stopped","time":"2023-05-19T19:24:16-03:00"}
+{"level":"info","msg":"Server is ready to handle requests at :8080","time":"2023-05-19T19:32:15-03:00"}
+{"level":"info","msg":"Status for https://github.com/: \u0026{ 20.201.28.151 200  14.048ms MarkMonitor Inc. 2007-10-09T18:20:50Z 2024-10-09T18:20:50Z}","time":"2023-05-19T19:32:19-03:00"}
+{"level":"error","msg":"Error getting status for https://tiktok.com/: could not get whois record: whois: query for whois server failed: whois: read from whois server failed: read tcp [2804:5b30:2c29:1100:3cd8:daea:ad5d:6b64]:56693-\u003e[2620:0:2830:200::59]:43: wsarecv: Foi forçado o cancelamento de uma conexão existente pelo host remoto.","time":"2023-05-19T19:32:26-03:00"}
+{"level":"info","msg":"Server is shutting down due to interrupt signal","time":"2023-05-19T19:32:27-03:00"}
+{"level":"info","msg":"Server stopped","time":"2023-05-19T19:32:27-03:00"}
+{"level":"info","msg":"Server is ready to handle requests at :8080","time":"2023-05-19T19:32:32-03:00"}
+{"level":"info","msg":"Status for https://github.com/: \u0026{ 20.201.28.151 200  12.795ms MarkMonitor Inc. 2007-10-09T18:20:50Z 2024-10-09T18:20:50Z}","time":"2023-05-19T19:32:33-03:00"}
+{"level":"info","msg":"Server is shutting down due to interrupt signal","time":"2023-05-19T19:32:36-03:00"}
+{"level":"info","msg":"Server stopped","time":"2023-05-19T19:32:36-03:00"}
