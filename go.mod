@@ -3,6 +3,7 @@ module github.com/kevinfinalboss/ip-monitoring
 go 1.20
 
 require (
+	github.com/common-nighthawk/go-figure v0.0.0-20210622060536-734e95fb86be
 	github.com/go-chi/chi v1.5.4
 	github.com/likexian/whois v1.15.0
 	github.com/likexian/whois-parser v1.24.8
