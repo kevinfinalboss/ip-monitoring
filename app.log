@@ -38,3 +38,24 @@
 {"level":"info","msg":"Status for https://github.com/: \u0026{ 20.201.28.151 200  12.795ms MarkMonitor Inc. 2007-10-09T18:20:50Z 2024-10-09T18:20:50Z}","time":"2023-05-19T19:32:33-03:00"}
 {"level":"info","msg":"Server is shutting down due to interrupt signal","time":"2023-05-19T19:32:36-03:00"}
 {"level":"info","msg":"Server stopped","time":"2023-05-19T19:32:36-03:00"}
+{"level":"info","msg":"Server is ready to handle requests at :8080","time":"2023-05-22T01:09:00-03:00"}
+{"level":"info","msg":"Status for https://github.com/: \u0026{ 20.201.28.151 200  15.9985ms MarkMonitor Inc. 2007-10-09T18:20:50Z 2024-10-09T18:20:50Z}","time":"2023-05-22T01:09:02-03:00"}
+{"level":"info","msg":"Status for https://tiktok.com/: \u0026{ 108.139.182.100 200  1.5144106s Gandi SAS 1996-07-21T04:00:00Z 2023-07-20T04:00:00Z}","time":"2023-05-22T01:09:08-03:00"}
+{"level":"info","msg":"Status for https://dudinha-bot-website.vercel.app/: \u0026{ 76.76.21.241 200  7.6629ms   }","time":"2023-05-22T01:09:09-03:00"}
+{"level":"error","msg":"Error getting status for : could not get IPs: lookup : no such host","time":"2023-05-22T01:09:09-03:00"}
+{"level":"info","msg":"Server is shutting down due to interrupt signal","time":"2023-05-22T01:10:02-03:00"}
+{"level":"info","msg":"Server stopped","time":"2023-05-22T01:10:02-03:00"}
+{"level":"info","msg":"Server is ready to handle requests at :8080","time":"2023-05-22T01:15:24-03:00"}
+{"level":"info","msg":"Status for https://github.com/: \u0026{ 20.201.28.151 200  19.9961ms MarkMonitor Inc. 2007-10-09T18:20:50Z 2024-10-09T18:20:50Z}","time":"2023-05-22T01:15:26-03:00"}
+{"level":"info","msg":"Status for https://tiktok.com/: \u0026{ 108.139.182.100 200  1.7352097s Gandi SAS 1996-07-21T04:00:00Z 2023-07-20T04:00:00Z}","time":"2023-05-22T01:15:31-03:00"}
+{"level":"info","msg":"Status for https://dudinha-bot-website.vercel.app/: \u0026{ 76.76.21.123 200  10.4169ms   }","time":"2023-05-22T01:15:33-03:00"}
+{"level":"error","msg":"Error getting status for : could not get IPs: lookup : no such host","time":"2023-05-22T01:15:34-03:00"}
+{"level":"info","msg":"Server is shutting down due to interrupt signal","time":"2023-05-22T01:17:00-03:00"}
+{"level":"info","msg":"Server stopped","time":"2023-05-22T01:17:00-03:00"}
+{"level":"info","msg":"Server is ready to handle requests at :8080","time":"2023-05-22T01:17:41-03:00"}
+{"level":"info","msg":"Status for https://github.com/: \u0026{ 20.201.28.151 200  12.8574ms MarkMonitor Inc. 2007-10-09T18:20:50Z 2024-10-09T18:20:50Z}","time":"2023-05-22T01:17:43-03:00"}
+{"level":"info","msg":"Status for https://tiktok.com/: \u0026{ 108.139.182.100 200  1.8334339s Gandi SAS 1996-07-21T04:00:00Z 2023-07-20T04:00:00Z}","time":"2023-05-22T01:17:49-03:00"}
+{"level":"info","msg":"Status for https://dudinha-bot-website.vercel.app/: \u0026{ 76.76.21.123 200  11.1175ms   }","time":"2023-05-22T01:17:51-03:00"}
+{"level":"error","msg":"Error getting status for : could not get IPs: lookup : no such host","time":"2023-05-22T01:17:51-03:00"}
+{"level":"info","msg":"Server is shutting down due to interrupt signal","time":"2023-05-22T01:18:08-03:00"}
+{"level":"info","msg":"Server stopped","time":"2023-05-22T01:18:08-03:00"}
