@@ -2,12 +2,14 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"net/http"
 	"os"
 	"os/signal"
 	"syscall"
 	"time"
 
+	"github.com/common-nighthawk/go-figure"
 	"github.com/kevinfinalboss/ip-monitoring/notifiers"
 	"github.com/kevinfinalboss/ip-monitoring/routers"
 	"github.com/kevinfinalboss/ip-monitoring/services"
@@ -20,6 +22,22 @@ const (
 )
 
 func main() {
+	myFigure := figure.NewFigure("IP Monitoring", "", true)
+	myFigure.Print()
+
+	fmt.Println("API Name: IP Monitoring")
+	fmt.Println("Version: 1.0.0")
+
+	if os.Getenv("ENV") == "production" {
+		logrus.SetLevel(logrus.WarnLevel)
+		fmt.Println("Environment: Production")
+	} else {
+		logrus.SetLevel(logrus.DebugLevel)
+		fmt.Println("Environment: Development")
+	}
+
+	fmt.Println("Listening on Port:", port)
+
 	logrus.SetFormatter(&logrus.JSONFormatter{})
 
 	logFile, err := os.OpenFile("app.log", os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
@@ -27,12 +45,6 @@ func main() {
 		logrus.SetOutput(logFile)
 	} else {
 		logrus.Warnln("Failed to log to file, using default stderr")
-	}
-
-	if os.Getenv("ENV") == "production" {
-		logrus.SetLevel(logrus.WarnLevel)
-	} else {
-		logrus.SetLevel(logrus.DebugLevel)
 	}
 
 	r := routers.NewRouter()
